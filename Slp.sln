@@ -9,7 +9,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Slp.WebApi", "Slp.WebApi\Sl
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Slp.Services", "Slp.Services\Slp.Services.csproj", "{D1672FAE-2D46-4B84-BB31-11D21EF6C414}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Slp.DataCore", "Slp.DataCore\Slp.DataCore.csproj", "{2FCC9530-1E32-4A33-B12C-D8DF490DEBB2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Slp.DataCore", "Slp.DataCore\Slp.DataCore.csproj", "{2FCC9530-1E32-4A33-B12C-D8DF490DEBB2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DAL", "DAL", "{6F981F39-FB96-4F43-A95A-4A03F676F957}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{BE575A20-ADA8-4636-83B6-849CF8FF8B7B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Service", "Service", "{157C6CEE-2DDB-4DCD-880D-553A52DAD65A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -36,6 +42,11 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{09860653-D345-4071-8458-3C09C2D8DA0A} = {6F981F39-FB96-4F43-A95A-4A03F676F957}
+		{D1672FAE-2D46-4B84-BB31-11D21EF6C414} = {157C6CEE-2DDB-4DCD-880D-553A52DAD65A}
+		{2FCC9530-1E32-4A33-B12C-D8DF490DEBB2} = {BE575A20-ADA8-4636-83B6-849CF8FF8B7B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C8922F23-6ADE-486D-8431-663705FD78CC}
