@@ -1,12 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Slp.Data.Repositories.Interfaces;
 using Slp.DataCore.Exceptions;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Slp.Data.Repositories
 {
@@ -20,24 +15,14 @@ namespace Slp.Data.Repositories
         {
             this.context = context;
             this.dbSet = context.Set<TEntity>();
-        }
-
-        public async Task DeleteAsync(TEntity entity)
-        {
-            context.Set<TEntity>().Remove(entity);
-            await context.SaveChangesAsync();
-        }
-
-        public async Task DeleteRangeAsync(ICollection<TEntity> entities)
-        {
-            context.Set<TEntity>().RemoveRange(entities);
-            await context.SaveChangesAsync();
-        }
+        }        
 
         public async Task<int> CountAsync()
         {
             return await context.Set<TEntity>().CountAsync();
         }
+
+        #region Get
 
         public virtual async Task<List<TEntity>> GetAllAsync()
         {
@@ -72,6 +57,26 @@ namespace Slp.Data.Repositories
         {
             return await context.Set<TEntity>().FirstOrDefaultAsync(match);
         }
+
+        #endregion
+
+        #region Delete
+
+        public async Task DeleteAsync(TEntity entity)
+        {
+            context.Set<TEntity>().Remove(entity);
+            await context.SaveChangesAsync();
+        }
+
+        public async Task DeleteRangeAsync(ICollection<TEntity> entities)
+        {
+            context.Set<TEntity>().RemoveRange(entities);
+            await context.SaveChangesAsync();
+        }
+
+        #endregion
+
+        #region Update
 
         public virtual async Task<TEntity> UpdateAsync(TEntity entityToUpdate)
         {
@@ -114,20 +119,6 @@ namespace Slp.Data.Repositories
 
             return entities;
         }
-
-
-
-
-
-        #region Delete
-
-
-
-        #endregion
-
-        #region Update
-
-
 
         #endregion
 
