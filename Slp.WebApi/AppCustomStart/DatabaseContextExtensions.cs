@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Slp.Data;
+using Slp.DataProvider;
 
 namespace Slp.WebApi.AppCustomStart
 {

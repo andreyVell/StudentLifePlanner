@@ -8,7 +8,7 @@ namespace Slp.WebApi
         {
             ServicesRegister(builder);
             RepositoriesRegister(builder);
-            UnitOfWorkRegister(builder);
+            UnitOfWorkRegister(builder);            
         }
 
         private void ServicesRegister(ContainerBuilder builder)
@@ -21,7 +21,7 @@ namespace Slp.WebApi
 
         private void RepositoriesRegister(ContainerBuilder builder)
         {
-            var dataAssembly = typeof(Data.AssemblyRunner).Assembly;
+            var dataAssembly = typeof(DataProvider.AssemblyRunner).Assembly;
             builder.RegisterAssemblyTypes(dataAssembly)
                 .Where(t => t.Name.EndsWith("Repository"))
                 .AsImplementedInterfaces();
@@ -29,8 +29,8 @@ namespace Slp.WebApi
 
         private void UnitOfWorkRegister(ContainerBuilder builder)
         {
-            builder.RegisterType(typeof(Data.UnitOfWork))
-                .As(typeof(Data.IUnitOfWork));
+            builder.RegisterType(typeof(DataProvider.UnitOfWork))
+                .As(typeof(DataProvider.IUnitOfWork));
         }
     }
 }
