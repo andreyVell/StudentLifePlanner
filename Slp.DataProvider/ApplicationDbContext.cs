@@ -88,7 +88,7 @@ namespace Slp.DataProvider
                     .HasDefaultValue(false);
             builder.Entity<Vacancy>()
                 .Property(b => b.CurrentStatus)
-                    .HasDefaultValue(VacancyStatus.SuccessfulResponce);
+                    .HasDefaultValue(VacancyStatus.SuccessfulResponse);
 
 
 
@@ -127,6 +127,10 @@ namespace Slp.DataProvider
                 .HasOne(a => a.CreatedBy)
                 .WithMany()
                 .OnDelete(DeleteBehavior.ClientNoAction);
+
+            builder.Entity<User>()
+                .HasIndex(e => e.Login)
+                .IsUnique(true);
         }
 
         private void SeedDate(ModelBuilder builder)

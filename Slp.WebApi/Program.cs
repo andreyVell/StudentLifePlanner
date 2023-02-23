@@ -38,10 +38,8 @@ namespace Slp.WebApi
                 });
             builder.Services.AddHttpContextAccessor();
             //auth + NOT YET
-            //builder.Services.AddCustomAuth0Authentication(builder.Configuration);
             //builder.Services.AddCustomPdsCorsPolicy(builder.Configuration);
-            //builder.Services.AddCustomSwagger();
-            //builder.Services.AddCustomAutoMapper();
+            builder.Services.AddCustomAutoMapper();
 
             var app = builder.Build();
 

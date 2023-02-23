@@ -2,7 +2,7 @@
 {
     public enum VacancyStatus
     {
-        SuccessfulResponce,
+        SuccessfulResponse,
         FirstInterview,
         TestTask,
         SecondInterview,

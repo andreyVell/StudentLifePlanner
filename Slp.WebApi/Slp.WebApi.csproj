@@ -21,8 +21,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Slp.DataProvider\Slp.DataProvider.csproj" />
+    <ProjectReference Include="..\Slp.Mappers\Slp.Mappers.csproj" />
     <ProjectReference Include="..\Slp.Services\Slp.Services.csproj" />
+    <ProjectReference Include="..\Slp.WebApi.Contacts\Slp.WebApi.Contracts.csproj" />
   </ItemGroup>
 
 </Project>

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Slp.Services.Services.Interfaces
 {
-    public interface IAuthService
+    public interface ICurrentUserService
     {
         Guid GetCurrentUserId();
     }

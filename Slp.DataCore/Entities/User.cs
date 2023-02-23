@@ -3,6 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Slp.DataCore.Entities
 {
+
     public class User
     {
         [Required]
@@ -19,7 +20,7 @@ namespace Slp.DataCore.Entities
         [Column(TypeName = "varchar(100)")]
         public string? Email { get; set; }
         [Required]
-        [Column(TypeName = "varchar(50)")]
+        [Column(TypeName = "varchar(50)")]        
         public string Login { get; set; }
         [Required]
         [Column(TypeName = "varchar(100)")]
