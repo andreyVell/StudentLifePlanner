@@ -7,6 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Http" Version="2.2.2" />
+    <PackageReference Include="System.Security.Claims" Version="4.3.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Slp.DataProvider\Slp.DataProvider.csproj" />
     <ProjectReference Include="..\Slp.Data\Slp.DataProvider.csproj" />
   </ItemGroup>
 
