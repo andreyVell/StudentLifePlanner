@@ -16,17 +16,14 @@ namespace Slp.Services.Services
     public class AuthenticationService : IAuthenticationService
     {
         private readonly IUnitOfWork _unitOfWork;
-        private readonly IHttpContextAccessor _httpContextAccessor;
         private readonly IConfiguration _configuration;
 
         public AuthenticationService(
             IUnitOfWork unitOfWork, 
-            IHttpContextAccessor httpContextAccessor,
             IConfiguration configuration)
         {
             _configuration = configuration;
             _unitOfWork = unitOfWork;
-            _httpContextAccessor = httpContextAccessor;
         }
 
         public async Task<string> LoginAsync(LoginUserModel user)

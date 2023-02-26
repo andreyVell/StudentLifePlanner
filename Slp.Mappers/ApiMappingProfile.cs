@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using Slp.Services.Models.User;
 using Slp.WebApi.Contracts.Controllers.Authentication;
-using Slp.WebApi.Contracts.Controllers.Registration.CreateUser;
+using Slp.WebApi.Contracts.Controllers.Registration;
 
 namespace Slp.Mappers
 {

@@ -24,11 +24,9 @@ namespace Slp.WebApi
             builder.Services.AddSwaggerGen();
             builder.Services.AddCustomSqlContext(builder.Configuration);
 
-            //custom video auth
             builder.Services.AddCustomJwtBearerAuthentication(builder.Configuration);
             builder.Services.AddHttpContextAccessor();
-            //auth + NOT YET
-            //builder.Services.AddCustomPdsCorsPolicy(builder.Configuration);
+            builder.Services.AddCustomCorsPolicy(builder.Configuration);
             builder.Services.AddCustomAutoMapper();
 
             var app = builder.Build();
@@ -43,8 +41,7 @@ namespace Slp.WebApi
                 app.UseSwaggerUI();
             }
 
-            //NOT YET
-            //app.UseCustomPdsCorsPolicy();
+            app.UseCustomCorsPolicy();
             app.UseHttpsRedirection();
             app.UseRouting();
             app.UseAuthentication();

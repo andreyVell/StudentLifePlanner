@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Slp.Services.Models.User;
 using Slp.Services.Services.Interfaces;
-using Slp.WebApi.Contracts.Controllers.Registration.CreateUser;
+using Slp.WebApi.Contracts.Controllers.Registration;
 
 namespace Slp.WebApi.Controllers
 {
