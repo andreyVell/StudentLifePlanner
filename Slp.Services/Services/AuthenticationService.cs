@@ -41,21 +41,14 @@ namespace Slp.Services.Services
             }
 
             var dbUser = await _unitOfWork.Users.GetFirstWhereAsync(e=>e.Login== user.Login);
-            if (dbUser == null)
+            if (dbUser == null || dbUser.PasswordHash != CreatePasswordHash(user.Password, dbUser.PasswordSalt))
             {
-                throw new UserLoginException("User not found");
+                throw new UserLoginException("The login or password is incorrect");
             }
             else
-            {
-                if (dbUser.PasswordHash != CreatePasswordHash(user.Password, dbUser.PasswordSalt))
-                {
-                    throw new UserLoginException("Wrong password");
-                }
-                else
-                {
-                    string token = CreateToken(dbUser);
-                    return token;
-                }     
+            {                
+                string token = CreateToken(dbUser);
+                return token;
             }
         }
 
@@ -67,8 +60,8 @@ namespace Slp.Services.Services
                 new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
             };
 
-            var key = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes(
-                _configuration.GetSection("Token").Value));
+            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(
+                _configuration.GetSection("Token").Value!));
 
             var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha512Signature);
 
