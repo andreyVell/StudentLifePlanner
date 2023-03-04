@@ -1,10 +1,10 @@
 ﻿using Microsoft.AspNetCore.Cryptography.KeyDerivation;
 using Slp.DataCore.Entities;
-using Slp.DataCore.Exceptions.User;
+using Slp.DataCore.Exceptions.User.Create;
 using Slp.DataProvider;
+using Slp.Services.Models;
 using Slp.Services.Models.User;
 using Slp.Services.Services.Interfaces;
-using System.Security.Cryptography;
 using System.Text;
 
 namespace Slp.Services.Services
@@ -20,30 +20,15 @@ namespace Slp.Services.Services
         public async Task<Guid> CreateNewUserAsync(CreateUserModel newUser)
         {
             //проверить валидность полей
-            if (newUser == null)
-            {
-                throw new UserCreateException("Empty user data");
-            }
-            if (string.IsNullOrEmpty(newUser.FirstName))
-            {
-                throw new UserCreateException("Enter FirstName");
-            }
-            if (string.IsNullOrEmpty(newUser.Login))
-            {
-                throw new UserCreateException("Enter login");
-            }
-            if (string.IsNullOrEmpty(newUser.Password))
-            {
-                throw new UserCreateException("Enter password");
-            }
+            ModelValidator.ValidateModel(newUser);   
+
             //проверить есть ли уже такой пользователь в бд (по логину)
             if (await _unitOfWork.Users.AnyAsync(e=>e.Login == newUser.Login))
             {
-                throw new UserCreateException("A user login already exists");
+                throw new UserCreateLoginAlreadyExistsException();
             }
             
-            //если все ок то регистрируем            
-
+            //если все ок то регистрируем    
             var user = new User();
             user.FirstName = newUser.FirstName;
             user.Login = newUser.Login;

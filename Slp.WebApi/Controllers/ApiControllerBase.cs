@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using Slp.DataCore.Exceptions;
 using System.Net;
 
@@ -9,7 +10,9 @@ namespace Slp.WebApi.Controllers
     {
         protected IActionResult ExceptionResult(Exception exception)
         {
-            return StatusCode((int)HttpStatusCode.BadRequest, exception.Message);
+            var error = new ApiErrorResponce();
+            error.ErrorMessage = exception.Message;
+            return StatusCode((int)HttpStatusCode.BadRequest, error);
         }
     }
 }

@@ -2,7 +2,7 @@
 
 namespace Slp.Services.Services.Interfaces
 {
-    public interface IRegistrationService
+    public interface IRegistrationService : IServiceRegistrator
     {
         Task<Guid> CreateNewUserAsync(CreateUserModel newUser);
     }

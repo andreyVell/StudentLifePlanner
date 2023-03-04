@@ -19,13 +19,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Slp.DataProvider", "Slp.Dat
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WebApi", "WebApi", "{D83F7EC4-9A44-442F-BF41-4A5EAB5FC74A}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FrontEnd", "FrontEnd", "{A7CFD6EB-92C2-44F2-8AB4-788EF70B37C7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Slp.WebApi.Contracts", "Slp.WebApi.Contacts\Slp.WebApi.Contracts.csproj", "{95F6D877-8061-4D59-AEE1-664C96D87F37}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Slp.WebApi.Contracts", "Slp.WebApi.Contacts\Slp.WebApi.Contracts.csproj", "{95F6D877-8061-4D59-AEE1-664C96D87F37}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Slp.Mappers", "Slp.Mappers\Slp.Mappers.csproj", "{C081D7F5-0D62-4F6E-9F05-F71C867263FF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Slp.Mappers", "Slp.Mappers\Slp.Mappers.csproj", "{C081D7F5-0D62-4F6E-9F05-F71C867263FF}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Slp.Services.Models", "Slp.Services.Models\Slp.Services.Models.csproj", "{801FE25C-06B1-4185-B5D0-C1EBF65513FE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Slp.Services.Models", "Slp.Services.Models\Slp.Services.Models.csproj", "{801FE25C-06B1-4185-B5D0-C1EBF65513FE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

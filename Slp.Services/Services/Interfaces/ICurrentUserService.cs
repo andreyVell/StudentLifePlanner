@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Slp.Services.Services.Interfaces
+﻿namespace Slp.Services.Services.Interfaces
 {
-    public interface ICurrentUserService
+    public interface ICurrentUserService : IServiceRegistrator
     {
         Guid GetCurrentUserId();
     }

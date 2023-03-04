@@ -1,8 +1,6 @@
 ﻿using Slp.DataProvider;
 using Slp.Services.Services.Interfaces;
-using Microsoft.AspNetCore.Http;
 using Slp.Services.Models.User;
-using Slp.DataCore.Exceptions.User;
 using Microsoft.AspNetCore.Cryptography.KeyDerivation;
 using System.Text;
 using Slp.DataCore.Entities;
@@ -10,6 +8,8 @@ using System.Security.Claims;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using Microsoft.Extensions.Configuration;
+using Slp.Services.Models;
+using Slp.DataCore.Exceptions.User.Login;
 
 namespace Slp.Services.Services
 {
@@ -28,19 +28,11 @@ namespace Slp.Services.Services
 
         public async Task<string> LoginAsync(LoginUserModel user)
         {
-            if (string.IsNullOrEmpty(user.Login))
-            {
-                throw new UserLoginException("Enter login");
-            }
-            if (string.IsNullOrEmpty(user.Password))
-            {
-                throw new UserLoginException("Enter password");
-            }
-
+            ModelValidator.ValidateModel(user);    
             var dbUser = await _unitOfWork.Users.GetFirstWhereAsync(e=>e.Login== user.Login);
             if (dbUser == null || dbUser.PasswordHash != CreatePasswordHash(user.Password, dbUser.PasswordSalt))
             {
-                throw new UserLoginException("The login or password is incorrect");
+                throw new UserLoginIncorrectDataException();
             }
             else
             {                

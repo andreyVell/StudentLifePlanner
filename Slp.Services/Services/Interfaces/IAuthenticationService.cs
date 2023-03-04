@@ -2,7 +2,7 @@
 
 namespace Slp.Services.Services.Interfaces
 {
-    public interface IAuthenticationService
+    public interface IAuthenticationService : IServiceRegistrator
     {        
         Task<string> LoginAsync(LoginUserModel user);
     }
