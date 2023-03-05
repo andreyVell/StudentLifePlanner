@@ -14,6 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Slp.DataCore\Slp.DataCore.csproj" />
     <ProjectReference Include="..\Slp.DataProvider\Slp.DataProvider.csproj" />
     <ProjectReference Include="..\Slp.Services.Models\Slp.Services.Models.csproj" />
   </ItemGroup>

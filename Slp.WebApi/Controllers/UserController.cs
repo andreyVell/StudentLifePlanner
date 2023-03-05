@@ -7,7 +7,7 @@ using Slp.WebApi.Contracts.Controllers.User;
 
 namespace Slp.WebApi.Controllers
 {
-    [Route("User")]
+    [Route("[controller]")]
     [ApiController]
     public class UserController : ApiControllerBase
     {

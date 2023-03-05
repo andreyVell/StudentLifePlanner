@@ -1,6 +1,7 @@
 ﻿using Slp.DataCore.Exceptions.User.Create;
 using Slp.DataCore.Exceptions.User.Edit;
 using Slp.DataCore.Exceptions.User.Login;
+using Slp.Services.Models.DailyTask;
 using Slp.Services.Models.User;
 using System.Runtime.InteropServices;
 
@@ -68,6 +69,6 @@ namespace Slp.Services.Models
             {
                 throw new UserEditFirstnameEmptyException();
             }
-        }
+        }        
     }
 }
