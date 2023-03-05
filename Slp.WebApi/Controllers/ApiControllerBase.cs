@@ -10,7 +10,7 @@ namespace Slp.WebApi.Controllers
     {
         protected IActionResult ExceptionResult(Exception exception)
         {
-            var error = new ApiErrorResponce();
+            var error = new ApiErrorResponse();
             error.ErrorMessage = exception.Message;
             return StatusCode((int)HttpStatusCode.BadRequest, error);
         }

@@ -1,6 +1,8 @@
 ﻿using Slp.DataCore.Exceptions.User.Create;
+using Slp.DataCore.Exceptions.User.Edit;
 using Slp.DataCore.Exceptions.User.Login;
 using Slp.Services.Models.User;
+using System.Runtime.InteropServices;
 
 namespace Slp.Services.Models
 {
@@ -46,6 +48,25 @@ namespace Slp.Services.Models
             if (string.IsNullOrEmpty(loginUserModel.Password))
             {
                 throw new UserLoginEmptyPasswordException();
+            }
+        }
+        /// <summary>
+        /// Validate all object fields. Can throw an appropriate exception if the field is not valid.
+        /// </summary>
+        /// <param name="editUserModel">Object to validate</param>
+        public static void ValidateModel(EditUserModel editUserModel)
+        {
+            if (editUserModel == null)
+            {
+                throw new UserEditEmptyUserDataException();
+            }
+            if (editUserModel.Id == Guid.Empty)
+            {
+                throw new UserEditEmptyIdException();
+            }
+            if (string.IsNullOrEmpty(editUserModel.FirstName))
+            {
+                throw new UserEditFirstnameEmptyException();
             }
         }
     }

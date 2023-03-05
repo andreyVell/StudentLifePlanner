@@ -1,6 +1,6 @@
 ﻿namespace Slp.DataCore.Exceptions
 {
-    public class ApiErrorResponce
+    public class ApiErrorResponse
     {
         public string ErrorMessage { get; set; }
     }
