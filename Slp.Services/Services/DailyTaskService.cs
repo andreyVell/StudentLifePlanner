@@ -44,6 +44,13 @@ namespace Slp.Services.Services
             await _unitOfWork.DailyTasks.DeleteAsync(dailyTask);
         }
 
+        public async Task CompleteAsync(Guid dailyTaskId)
+        {
+            var dailyTask = await _unitOfWork.DailyTasks.GetFirstWhereAsync(e => e.Id == dailyTaskId);
+            dailyTask.IsCompleted = true;
+            await _unitOfWork.DailyTasks.UpdateAsync(dailyTask);
+        }
+
         public async Task<Guid> EditAsync(EditDailyTaskModel dailyTask)
         {
             var dbDailyTask = await _unitOfWork.DailyTasks.GetFirstWhereAsync(e => e.Id == dailyTask.Id);

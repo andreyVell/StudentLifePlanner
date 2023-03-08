@@ -9,5 +9,7 @@ namespace Slp.Services.Services.Interfaces
         Task<Guid> EditAsync(EditDailyTaskModel dailyTask);
         Task DeleteAsync(Guid dailyTaskId);
         Task<Guid> CreateAsync(CreateDailyTaskModel dailyTask);
+
+        Task CompleteAsync(Guid dailyTaskId);
     }
 }

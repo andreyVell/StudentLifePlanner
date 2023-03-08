@@ -113,5 +113,21 @@ namespace Slp.WebApi.Controllers
                 return ExceptionResult(e);
             }
         }
+
+        
+        [HttpPost("/Complete/{dailyTaskId}"), Authorize]        
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        public async Task<IActionResult> Complete(Guid dailyTaskId)
+        {
+            try
+            {
+                await _dailyTaskService.CompleteAsync(dailyTaskId);
+                return Ok();
+            }
+            catch (Exception e)
+            {
+                return ExceptionResult(e);
+            }
+        }
     }
 }
