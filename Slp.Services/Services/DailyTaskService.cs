@@ -32,7 +32,7 @@ namespace Slp.Services.Services
             newDailyTask.CreatedById = _currentUserService.GetCurrentUserId();
             newDailyTask.Name = dailyTask.Name;
             newDailyTask.DeadLineDate = dailyTask.DeadLineDate;
-            newDailyTask.Description = dailyTask.Descriprion;
+            newDailyTask.Description = dailyTask.Description;
             newDailyTask.IsCompleted = dailyTask.IsCompleted;
             var result = await _unitOfWork.DailyTasks.InsertAsync(newDailyTask);
             return result.Id;
@@ -59,7 +59,7 @@ namespace Slp.Services.Services
                 throw new DailyTaskDoesNotExistException();
             }
             dbDailyTask.DeadLineDate = dailyTask.DeadLineDate;
-            dbDailyTask.Description = dailyTask.Descriprion;
+            dbDailyTask.Description = dailyTask.Description;
             dbDailyTask.IsCompleted = dailyTask.IsCompleted;
             dbDailyTask.ModifyAt = DateTime.UtcNow;
             dbDailyTask.ModifyById = _currentUserService.GetCurrentUserId();
