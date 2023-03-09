@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Slp.DataCore\Slp.DataCore.csproj" />
+  </ItemGroup>
+
 </Project>

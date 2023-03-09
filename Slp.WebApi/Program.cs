@@ -24,21 +24,9 @@ namespace Slp.WebApi
             builder.Services.AddSwaggerGen();
             builder.Services.AddCustomSqlContext(builder.Configuration);
 
-            //custom video auth
-            builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-                .AddJwtBearer(options =>
-                {
-                    options.TokenValidationParameters = new TokenValidationParameters
-                    {
-                        ValidateIssuerSigningKey = true,
-                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration.GetSection("Token").Value)),
-                        ValidateIssuer = false,
-                        ValidateAudience = false,
-                    };
-                });
+            builder.Services.AddCustomJwtBearerAuthentication(builder.Configuration);
             builder.Services.AddHttpContextAccessor();
-            //auth + NOT YET
-            //builder.Services.AddCustomPdsCorsPolicy(builder.Configuration);
+            builder.Services.AddCustomCorsPolicy(builder.Configuration);
             builder.Services.AddCustomAutoMapper();
 
             var app = builder.Build();
@@ -53,8 +41,7 @@ namespace Slp.WebApi
                 app.UseSwaggerUI();
             }
 
-            //NOT YET
-            //app.UseCustomPdsCorsPolicy();
+            app.UseCustomCorsPolicy();
             app.UseHttpsRedirection();
             app.UseRouting();
             app.UseAuthentication();

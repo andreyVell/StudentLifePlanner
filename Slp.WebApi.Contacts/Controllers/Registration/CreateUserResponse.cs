@@ -1,4 +1,4 @@
-﻿namespace Slp.WebApi.Contracts.Controllers.Registration.CreateUser
+﻿namespace Slp.WebApi.Contracts.Controllers.Registration
 {
     public class CreateUserResponse
     {

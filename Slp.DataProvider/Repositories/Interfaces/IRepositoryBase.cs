@@ -2,7 +2,7 @@
 
 namespace Slp.DataProvider.Repositories.Interfaces
 {
-    public interface IRepositoryBase<TEntity> where TEntity : class
+    public interface IRepositoryBase<TEntity> : IRepositoryRegistrator where TEntity : class 
     {
         Task<TEntity> GetFirstWhereAsync(Expression<Func<TEntity, bool>> match);
 

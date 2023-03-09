@@ -7,12 +7,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="12.0.1" />
     <PackageReference Include="Microsoft.AspNetCore.Cryptography.KeyDerivation" Version="7.0.3" />
     <PackageReference Include="Microsoft.AspNetCore.Http" Version="2.2.2" />
     <PackageReference Include="System.Security.Claims" Version="4.3.0" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Slp.DataCore\Slp.DataCore.csproj" />
     <ProjectReference Include="..\Slp.DataProvider\Slp.DataProvider.csproj" />
     <ProjectReference Include="..\Slp.Services.Models\Slp.Services.Models.csproj" />
   </ItemGroup>

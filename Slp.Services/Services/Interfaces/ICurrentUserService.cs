@@ -1,13 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Slp.Services.Models.User;
 
 namespace Slp.Services.Services.Interfaces
 {
-    public interface ICurrentUserService
+    public interface ICurrentUserService : IServiceRegistrator
     {
         Guid GetCurrentUserId();
+
+        Task<GetUserModel> GetCurrentUserAsync();
+
+        Task<Guid> EditCurrentUserAsync(EditUserModel user);
     }
 }
