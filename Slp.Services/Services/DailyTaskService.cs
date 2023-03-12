@@ -47,6 +47,10 @@ namespace Slp.Services.Services
         public async Task CompleteAsync(Guid dailyTaskId)
         {
             var dailyTask = await _unitOfWork.DailyTasks.GetFirstWhereAsync(e => e.Id == dailyTaskId);
+            if (dailyTask == null)
+            {
+                throw new DailyTaskDoesNotExistException();
+            }
             dailyTask.IsCompleted = true;
             await _unitOfWork.DailyTasks.UpdateAsync(dailyTask);
         }
