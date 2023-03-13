@@ -115,7 +115,7 @@ namespace Slp.WebApi.Controllers
         }
 
         
-        [HttpPost("/Complete/{dailyTaskId}"), Authorize]        
+        [HttpPost("Complete/{dailyTaskId}"), Authorize]        
         [ProducesResponseType(StatusCodes.Status200OK)]
         public async Task<IActionResult> Complete(Guid dailyTaskId)
         {
